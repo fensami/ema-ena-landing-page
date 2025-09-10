@@ -1,6 +1,13 @@
 import Image from "next/image";
+import { HiOutlineLightningBolt } from "react-icons/hi";
+import { IoColorPaletteOutline } from "react-icons/io5";
 import { MdRocketLaunch } from "react-icons/md";
-import { PiRocketLaunch } from "react-icons/pi";
+import {
+  PiArrowsClockwiseBold,
+  PiCurrencyDollarBold,
+  PiRocketLaunch,
+  PiTrophy,
+} from "react-icons/pi";
 // import { cards } from "./_constants/constants";
 const cards = [
   {
@@ -13,31 +20,31 @@ const cards = [
     title: "Agency Level Design",
     description:
       "Modern, premium, and tailored for your brand - without the agency price tag.",
-    icon: <MdRocketLaunch />,
+    icon: <IoColorPaletteOutline />,
   },
   {
     title: "5-day Guaranteed Delivery",
     description:
       "With a highly professional team, we deliver on time, everytime.",
-    icon: <MdRocketLaunch />,
+    icon: <HiOutlineLightningBolt />,
   },
   {
     title: "Transparent Pricing",
     description:
       "No hidden fees, just clear value. What you see is what you pay.",
-    icon: <MdRocketLaunch />,
+    icon: <PiCurrencyDollarBold />,
   },
   {
     title: "Revisions Until You're Happy",
     description:
       "We keep working until it's right. Your satisfaction is guaranteed.",
-    icon: <MdRocketLaunch />,
+    icon: <PiArrowsClockwiseBold />,
   },
   {
     title: "Results That Speak",
     description:
       "Our pages consistently outperform industry averages for conversions.",
-    icon: <MdRocketLaunch />,
+    icon: <PiTrophy />,
   },
 ];
 
@@ -80,18 +87,11 @@ const WhyBusinessTrust = () => {
                               group-hover:h-full transition-all duration-500 ease-in-out"
               />
 
-              {/* <Image
-                src={i.image}
-                height={48}
-                width={48}
-                className="object-cover relative z-10"
-                alt="img"
-              /> */}
-              <span className="text-[48px] mb-[46px] text-primary">
-                {i.icon}
-              </span>
-              <div className="space-y-[12px] relative z-10">
-                <p className="manrope-med-16 text-text-light">{i.title}</p>
+              <span className="text-[48px]  text-primary">{i.icon}</span>
+              <div className="mt-[36px]">
+                <p className="manrope-med-16 text-text-light mb-2.5">
+                  {i.title}
+                </p>
                 <p className="general-reg-14 text-secondary-light">
                   {i.description}
                 </p>
