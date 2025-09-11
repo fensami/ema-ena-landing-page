@@ -1,17 +1,15 @@
 import type { Metadata } from "next";
-import { Manrope, Geist } from "next/font/google";
-// import localFont from "next/font/local";
+import { Geist, Geist_Mono, Manrope } from "next/font/google";
 import "./globals.css";
 
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-const manrope = Manrope({
+const geistSans = Geist({
+  variable: "--font-geist-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-manrope",
+});
+
+const geistManrope = Manrope({
+  variable: "--font-Manrope",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -26,7 +24,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${manrope.variable}  antialiased`}>{children}</body>
+      <body
+        className={`${geistSans.variable} ${geistManrope.variable} antialiased`}
+      >
+        {children}
+      </body>
     </html>
   );
 }

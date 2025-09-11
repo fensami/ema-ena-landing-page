@@ -1,12 +1,8 @@
-// import { images } from "@/assets";
 import ButtonPrimary from "@/components/utils/ButtonPrimary/ButtonPrimary";
-// import { projectShowcaseData } from "@/data/fakeData";
 import Image from "next/image";
 import { FaCheck } from "react-icons/fa6";
-// import CustomButton from "./button";
 type ProjectShowcase = {
   name: string;
-
   point1: string;
   point2: string;
   image: string;
@@ -56,7 +52,6 @@ const CaseStudies = () => {
                 src={i.image}
                 width={560}
                 height={372}
-                // fill
                 className="object-cover h-full w-full"
                 alt="img"
               />

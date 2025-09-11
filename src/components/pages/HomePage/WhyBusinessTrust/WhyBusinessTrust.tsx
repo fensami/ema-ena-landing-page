@@ -1,14 +1,11 @@
-import Image from "next/image";
 import { HiOutlineLightningBolt } from "react-icons/hi";
 import { IoColorPaletteOutline } from "react-icons/io5";
-import { MdRocketLaunch } from "react-icons/md";
 import {
   PiArrowsClockwiseBold,
   PiCurrencyDollarBold,
   PiRocketLaunch,
   PiTrophy,
 } from "react-icons/pi";
-// import { cards } from "./_constants/constants";
 const cards = [
   {
     title: "Proven Conversion Framework",
@@ -52,21 +49,11 @@ const WhyBusinessTrust = () => {
   return (
     <>
       <div className="px-[16px] py-[64px] md:px-[120px] md:py-[120px] bg-background">
-        <p
-          //   data-aos="fade-up"
-          //   data-aos-duration={300}
-          //   data-aos-delay="200"
-          className="text-center manrope-med-48 mb-2"
-        >
+        <p className="text-center manrope-med-48 mb-2">
           Why Businesses <span className="text-primary">Trust Us</span> With
           Their Designs
         </p>
-        <p
-          //   data-aos="fade-up"
-          //   data-aos-duration={300}
-          //   data-aos-delay="300"
-          className="text-center general-reg-16 mb-12"
-        >
+        <p className="text-center general-reg-16 mb-12">
           We combine proven conversion frameworks with agency-level design to
           deliver results that matter.
         </p>
@@ -74,8 +61,6 @@ const WhyBusinessTrust = () => {
           {cards.map((i, indx) => (
             <div
               key={indx}
-              //   data-aos="fade-up"
-              //   data-aos-delay={indx * 100 + 300}
               className="p-6 flex flex-col items-start justify-between bg-card  curved 
                          border border-transparent hover:border-[#1FFFA5] 
                          transition-all duration-1000 ease-in-out

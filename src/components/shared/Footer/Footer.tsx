@@ -1,6 +1,3 @@
-// import { images } from "@/assets";
-import Image from "next/image";
-
 import {
   LiaBehance,
   LiaDribbble,
