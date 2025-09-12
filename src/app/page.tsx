@@ -1,3 +1,4 @@
+import AutoScrolll from "@/components/pages/HomePage/AutoScrolll/AutoScrolll";
 import CaseStudies from "@/components/pages/HomePage/CaseStudies/CaseStudies";
 import ClientSaying from "@/components/pages/HomePage/ClientSaying/ClientSaying";
 import FromIdeaToLive from "@/components/pages/HomePage/FromIdeaToLive/FromIdeaToLive";
@@ -12,10 +13,11 @@ export default function Home() {
   return (
     <div>
       <HeroSection />
+      <AutoScrolll />
       <WhyBusinessTrust />
       <CaseStudies />
-      <FromIdeaToLive />
       <PricingPlan />
+      <FromIdeaToLive />
       <ClientSaying />
       <GotQuestions />
       <ReadyToTurn />

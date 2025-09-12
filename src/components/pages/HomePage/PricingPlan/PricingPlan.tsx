@@ -1,56 +1,24 @@
-import { div, section } from "motion/react-client";
+"use client";
 import React from "react";
 import { FaArrowRight } from "react-icons/fa6";
 import { IoEllipse } from "react-icons/io5";
 import SpecialOffer from "../SpecialOffer/SpecialOffer";
-const plans = [
-  {
-    name: "Basic",
-    price: 200,
-    description: "Perfect for solopreneurs",
-    features: [
-      "1 Landing Page (Design + Development)",
-      "Hosting Deployment",
-      "5-Day Delivery",
-      "Basic Support",
-      "5-Day Delivery",
-    ],
-    mostPopular: false,
-  },
-  {
-    name: "Standard",
-    price: 300,
-    description: "Best balance of value & features",
-    features: [
-      "Everything in Basic",
-      "Extra Custom Section",
-      "Free Hosting Setup",
-      "Free Consultation Call",
-      "Priority Support",
-    ],
-    mostPopular: true,
-  },
-  {
-    name: "Premium",
-    price: 500,
-    description: "For brands & agencies",
-    features: [
-      "Everything in Standard",
-      "Advanced Animations",
-      "Priority Delivery (3 Days)",
-      "6 Months Free Support",
-      "Performance Optimization",
-    ],
-    mostPopular: false,
-  },
-];
+import { motion } from "framer-motion";
+import { plans } from "@/components/utils/ImportantData/ImportantData";
+
 const PricingPlan = () => {
   return (
-    <section className="bg-[#0A0F0D] py-[80px] md:py-[100px] xl:py-[120px]">
+    <section className="bg-[#0A0F0D] overflow-hidden py-[80px] md:py-[100px] xl:py-[120px]">
       <div className=" text-white  px-4 max-w-[1200px] mx-auto">
         {/* Section title */}
-        <div className="section-title mb-11">
-          <h1 className="text-3xl sm:text-4xl xl:text-5xl xl:leading-[72px] font-medium mb-4 font-primary">
+        <motion.div
+          initial={{ opacity: 0, x: 100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="section-title mb-11"
+        >
+          <h1 className="text-3xl text-[#F5F5F5] sm:text-4xl xl:text-5xl xl:leading-[72px] font-medium mb-2 font-primary">
             Simple, Transparent Pricing —{" "}
             <span className="text-primary">Choose Your Plan</span>
           </h1>
@@ -58,12 +26,16 @@ const PricingPlan = () => {
             No hidden fees, no surprises. Just premium landing pages at
             unbeatable prices.
           </p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 ">
+        </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-12 ">
           {plans.map((plan, index) => (
-            <div
+            <motion.div
+              initial={plan.animation.initial}
+              whileInView={plan.animation.animate}
+              viewport={{ once: false, amount: 0.5 }}
+              transition={{ duration: 0.4, delay: plan.animation.delay }}
               key={index}
-              className="bg-[rgb(25,36,32)] p-6 rounded-lg border-1 hover:border-[#1fffa5] border-[#0A0F0D] "
+              className="relative bg-[rgb(25,36,32)] p-6 rounded-lg border-2 hover:border-[#1fffa5] border-[#0A0F0D] transition-all duration-400 ease-linear group "
             >
               <div className="flex pb-11 mb-11 justify-between border-b-2 border-[#2A3C36]">
                 <div>
@@ -95,10 +67,17 @@ const PricingPlan = () => {
                   </span>
                 </button>
               </div>
-            </div>
+
+              {plan.mostPopular ? (
+                <span className="absolute top-[-17px] left-4 bg-[rgb(25,36,32)] border-[rgb(25,36,32)] border-2 group-hover:border-[#1FFFA5] px-3 py-1.5 rounded-full transition-all duration-400 ease-linear">
+                  Most Popular
+                </span>
+              ) : null}
+            </motion.div>
           ))}
         </div>
       </div>
+      {/* Special Offer */}
       <SpecialOffer />
     </section>
   );

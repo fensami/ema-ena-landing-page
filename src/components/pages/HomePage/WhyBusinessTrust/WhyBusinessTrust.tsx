@@ -1,65 +1,37 @@
-import { HiOutlineLightningBolt } from "react-icons/hi";
-import { IoColorPaletteOutline } from "react-icons/io5";
-import {
-  PiArrowsClockwiseBold,
-  PiCurrencyDollarBold,
-  PiRocketLaunch,
-  PiTrophy,
-} from "react-icons/pi";
-const cards = [
-  {
-    title: "Proven Conversion Framework",
-    description:
-      "Designs based on 100+ tested layouts that actually convert visitors into customers.",
-    icon: <PiRocketLaunch />,
-  },
-  {
-    title: "Agency Level Design",
-    description:
-      "Modern, premium, and tailored for your brand - without the agency price tag.",
-    icon: <IoColorPaletteOutline />,
-  },
-  {
-    title: "5-day Guaranteed Delivery",
-    description:
-      "With a highly professional team, we deliver on time, everytime.",
-    icon: <HiOutlineLightningBolt />,
-  },
-  {
-    title: "Transparent Pricing",
-    description:
-      "No hidden fees, just clear value. What you see is what you pay.",
-    icon: <PiCurrencyDollarBold />,
-  },
-  {
-    title: "Revisions Until You're Happy",
-    description:
-      "We keep working until it's right. Your satisfaction is guaranteed.",
-    icon: <PiArrowsClockwiseBold />,
-  },
-  {
-    title: "Results That Speak",
-    description:
-      "Our pages consistently outperform industry averages for conversions.",
-    icon: <PiTrophy />,
-  },
-];
+"use client";
+
+import { whyBusinessTrustCard } from "@/components/utils/ImportantData/ImportantData";
+import { motion } from "framer-motion";
 
 const WhyBusinessTrust = () => {
   return (
-    <>
-      <div className="px-[16px] py-[64px] md:px-[120px] md:py-[120px] bg-background">
-        <p className="text-center manrope-med-48 mb-2">
-          Why Businesses <span className="text-primary">Trust Us</span> With
-          Their Designs
-        </p>
-        <p className="text-center general-reg-16 mb-12">
-          We combine proven conversion frameworks with agency-level design to
-          deliver results that matter.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 md:gap-9 gap-4">
-          {cards.map((i, indx) => (
-            <div
+    <section className="bg-background overflow-hidden">
+      <div className="px-[16px]  md:py-[120px] max-w-[1200px] mx-auto">
+        {/* Section title */}
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="section-title text-center mb-11"
+        >
+          <h1 className="text-3xl sm:text-4xl xl:text-5xl xl:leading-[72px] font-medium mb-2 font-primary text-[#F5F5F5]">
+            Why Businesses <span className="text-primary">Trust Us</span> With
+            Their Designs
+          </h1>
+          <p className="text-gray-400 mb-8 text-[16px] font-normal leading-6">
+            We combine proven conversion frameworks with agency-level design to
+            deliver results that matter.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-6 lg:gap-9">
+          {whyBusinessTrustCard.map((i, indx) => (
+            <motion.div
+              initial={i.animation.initial}
+              whileInView={i.animation.animate}
+              viewport={{ once: false }}
+              transition={{ duration: 0.5, delay: 0.5 }}
               key={indx}
               className="p-6 flex flex-col items-start justify-between bg-card  curved 
                          border border-transparent hover:border-[#1FFFA5] 
@@ -77,15 +49,15 @@ const WhyBusinessTrust = () => {
                 <p className="manrope-med-16 text-text-light mb-2.5">
                   {i.title}
                 </p>
-                <p className="general-reg-14 text-secondary-light">
+                <p className="custom-text-14 text-secondary-light">
                   {i.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
-    </>
+    </section>
   );
 };
 

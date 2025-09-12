@@ -1,67 +1,53 @@
 "use client";
-import { motion } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
 import Image from "next/image";
 import { FaStar } from "react-icons/fa6";
-const clientSayingData = [
-  {
-    name: "Sarah Johnson",
-    title: "SaaS Founder",
-    description:
-      "They delivered a landing page better than agencies charging 10x more. My conversion rate doubled within the first week!",
-    image:
-      "https://res.cloudinary.com/dbbemyywc/image/upload/v1757563107/client4_kfl5jp.png",
-  },
-  {
-    name: "Mike Chen",
-    title: "Fitness Coach",
-    description:
-      "Fast, reliable, and professional. My conversions doubled and I'm getting more quality leads than ever before.",
-    image:
-      "https://res.cloudinary.com/dbbemyywc/image/upload/v1757563107/client4_kfl5jp.png",
-  },
-  {
-    name: "Amanda Rodriguez",
-    title: "E-Commerce Owner",
-    description:
-      "Best investment for my business. The ROI was immediate and substantial. Will definitely order again.",
-    image:
-      "https://res.cloudinary.com/dbbemyywc/image/upload/v1757563107/client4_kfl5jp.png",
-  },
-  {
-    name: "David Lee",
-    title: "SaaS Founder",
-    description:
-      "They delivered a landing page better than agencies charging 10x more. My conversion rate doubled within the first week!",
-    image:
-      "https://res.cloudinary.com/dbbemyywc/image/upload/v1757563107/client4_kfl5jp.png",
-  },
-];
+import { motion } from "framer-motion";
+import { clientSayingData } from "@/components/utils/ImportantData/ImportantData";
+
 const ClientSaying = () => {
   return (
-    <div className="py-[64px]  md:py-[120px] pr-[16px] md:pr-0 bg-[#151E1B]">
-      <p className="md:text-left text-center manrope-med-48 mb-2 pl-[16px] md:pl-[120px]">
-        What Our Clients Are Saying
-        <span className="text-primary"> About Us</span>
-      </p>
-      <p className="md:text-left text-center general-reg-16 mb-12 pl-[16px] md:pl-[120px]">
-        Real feedback from real businesses who have seen real results.
-      </p>
-
-      {/* Drag Container */}
+    <div className="py-[50px] md:py-[120px] px-[16px] bg-[#151E1B]">
+      {/* Section title */}
       <motion.div
-        className="cursor-grab overflow-hidden pl-[16px] md:pl-[120px]"
-        whileTap={{ cursor: "grabbing" }}
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+        className="section-title text-center mb-11"
       >
-        <motion.div
-          drag="x"
-          dragConstraints={{ left: -600, right: 0 }}
-          className="flex gap-6"
-        >
-          {clientSayingData.map((clientdata, index) => (
-            <div
-              key={index}
-              className="min-w-[280px] p-6 flex flex-col items-start justify-between bg-card rounded-[12px] "
-            >
+        <h1 className="text-3xl sm:text-4xl xl:text-5xl xl:leading-[72px] font-medium mb-2 font-primary text-[#F5F5F5]">
+          What Our Clients Are Saying
+          <span className="text-primary"> About Us</span>
+        </h1>
+        <p className="text-gray-400 mb-8 text-[16px] font-normal leading-6">
+          Real feedback from real businesses who have seen real results.
+        </p>
+      </motion.div>
+
+      {/* Swiper */}
+      <Swiper
+        modules={[Autoplay]}
+        slidesPerView={1}
+        spaceBetween={16}
+        loop={true}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
+        // pagination={{ clickable: true }}
+        breakpoints={{
+          500: { slidesPerView: 2 },
+          868: { slidesPerView: 3 },
+          1224: { slidesPerView: 4 },
+        }}
+        className="max-w-[1200px] mx-auto"
+      >
+        {clientSayingData.map((clientdata, index) => (
+          <SwiperSlide key={index} className="h-full">
+            <div className="p-6 flex flex-col items-start justify-between bg-card rounded-[12px]">
               <div>
                 <ul className="flex items-center gap-x-2 text-primary">
                   <li>
@@ -80,7 +66,7 @@ const ClientSaying = () => {
                     <FaStar />
                   </li>
                 </ul>
-                <blockquote className="general-reg-14 text-text-light mt-6">
+                <blockquote className="custom-text-14 text-text-light mt-6">
                   {clientdata.description}
                 </blockquote>
               </div>
@@ -93,18 +79,16 @@ const ClientSaying = () => {
                   className="object-cover rounded-full"
                 />
                 <div>
-                  <p className="general-med-16 text-text-light mb-[2px]">
-                    {clientdata.name}
-                  </p>
-                  <p className="general-reg-12 text-text-light">
+                  <p className="text-text-light mb-[2px]">{clientdata.name}</p>
+                  <p className="custom-text-12 text-text-light">
                     {clientdata.title}
                   </p>
                 </div>
               </div>
             </div>
-          ))}
-        </motion.div>
-      </motion.div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 };

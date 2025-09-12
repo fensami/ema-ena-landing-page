@@ -8,8 +8,8 @@ interface HeroButtonProps {
 
 const ButtonPrimary: React.FC<HeroButtonProps> = ({ text }) => {
   return (
-    <div className="heroContactButton group px-8 py-4 general-med-16 cursor-pointer rounded-[8px] hover:rounded-[18px]  flex items-center space-x-[12px]">
-      <button className="text-primary_dark cursor-pointer transition-all duration-300 group-hover:-translate-x-1">
+    <div className="heroContactButton group px-2 sm:px-8 py-4 text-[16px] sm:font-medium cursor-pointer rounded-[8px] hover:rounded-[18px]  flex items-center space-x-[12px]">
+      <button className=" cursor-pointer transition-all duration-300 group-hover:-translate-x-1">
         {text}
       </button>
       <FaArrowRightLong className="leading-1" />
