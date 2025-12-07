@@ -1,4 +1,4 @@
-Ema Ena Landing Page
+# Ema Ena Landing Page
 
 Project Overview: This project is a visually striking, high-performance landing page designed to demonstrate expertise in modern frontend development. It features a responsive layout, complex scroll-triggered animations, and smooth state transitions, achieving a professional, cutting-edge user experience.
 
