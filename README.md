@@ -2,6 +2,18 @@
 
 Project Overview: This project is a visually striking, high-performance landing page designed to demonstrate expertise in modern frontend development. It features a responsive layout, complex scroll-triggered animations, and smooth state transitions, achieving a professional, cutting-edge user experience.
 
+## Live Demo: https://ema-ena-landing-page.vercel.app
+
+# Technologies Used:
+
+Framework: Next.js (React)
+
+Styling: Tailwind CSS
+
+Animation: Framer Motion
+
+Deployment: Vercel
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
